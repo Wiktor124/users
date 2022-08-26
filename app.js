@@ -14,7 +14,7 @@ app.patch('/api/:id', user.update)
 app.delete('/api/:id', user.destroy)
 
 app.use(express.static('js'))
-app.use(express.static('css'))
+// app.use(express.static('css'))
 
 app.get('/', (req, res) => {
   res.sendFile(`${__dirname}/index.html`)
