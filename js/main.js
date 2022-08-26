@@ -20,7 +20,7 @@ const initialTemplate = () => {
 }
 
 const getUsers = async () => {
-  const response = await fetch('/https://users-khaki.vercel.app/')
+  const response = await fetch('/f')
   const users = await response.json()
   console.log(users)
   const template = user => `
@@ -31,7 +31,7 @@ const getUsers = async () => {
   users.forEach(user => {
     const userNode = document.querySelector(`[data-id="${user._id}"]`)
     userNode.onclick = async e => {
-      await fetch(`/https://users-khaki.vercel.app/${user._id}`, {
+      await fetch(`/f/${user._id}`, {
         method: 'DELETE', 
       })
       userNode.parentNode.remove()
@@ -47,7 +47,7 @@ const addFormListener = () => {
     e.preventDefault()
     const formData = new FormData(userForm)
     const data = Object.fromEntries(formData.entries())
-    await fetch('/https://users-khaki.vercel.app/', {
+    await fetch('/f', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {

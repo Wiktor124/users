@@ -6,12 +6,12 @@ const app = express()
 app.use(express.json())
 mongoose.connect('mongodb+srv://victor:db123456@cluster0.h3p4lnt.mongodb.net/miapp?retryWrites=true&w=majority')
 
-app.get('/https://users-khaki.vercel.app/', user.list)
-app.post('/https://users-khaki.vercel.app/', user.create)
-app.get('/https://users-khaki.vercel.app/:id', user.get)
-app.put('/https://users-khaki.vercel.app/:id', user.update)
-app.patch('/https://users-khaki.vercel.app/:id', user.update)
-app.delete('/https://users-khaki.vercel.app/:id', user.destroy)
+app.get('/f', user.list)
+app.post('/f', user.create)
+app.get('/f/:id', user.get)
+app.put('/f/:id', user.update)
+app.patch('/f/:id', user.update)
+app.delete('/f/:id', user.destroy)
 
 app.use(express.static('js'))
 
