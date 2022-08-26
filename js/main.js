@@ -1,3 +1,5 @@
+
+
 const initialTemplate = () => {
   const template = `
   <form action="" id="user-form">
@@ -19,8 +21,10 @@ const initialTemplate = () => {
   body.innerHTML = template
 }
 
+let url = 'https://users-khaki.vercel.app/'
+
 const getUsers = async () => {
-  const response = await fetch('/api')
+  const response = await fetch(url)
   const users = await response.json()
   const template = user => `
   <li>${user.name} ${user.lastname} <button data-id="${user._id}">Eliminar</button></li>
@@ -30,7 +34,7 @@ const getUsers = async () => {
   users.forEach(user => {
     const userNode = document.querySelector(`[data-id="${user._id}"]`)
     userNode.onclick = async e => {
-      await fetch(`/api/${user._id}`, {
+      await fetch(`${url}${user._id}`, {
         method: 'DELETE', 
       })
       userNode.parentNode.remove()
@@ -46,7 +50,7 @@ const addFormListener = () => {
     e.preventDefault()
     const formData = new FormData(userForm)
     const data = Object.fromEntries(formData.entries())
-    await fetch('/api', {
+    await fetch(url, {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
