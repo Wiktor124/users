@@ -25,6 +25,6 @@ app.get('*', (req, res) => {
 })
 
 
-app.listen(3000, () => {
+app.listen('https://https://users-khaki.vercel.app/', () => {
   console.log('Server on port 3000')
 })
