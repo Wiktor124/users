@@ -5,11 +5,11 @@ const initialTemplate = () => {
   <form action="" id="user-form">
     <div>
       <label>Name</label>
-      <input type="text" name="name">
+      <input type="text" name="name" autocomplete="off">
     </div>
     <div>
       <label>Last Name </label>
-      <input type="text" name="lastname">
+      <input type="text" name="lastname" autocomplete="off">
     </div>
     <input type="submit" value="Send">
   </form>
@@ -21,7 +21,7 @@ const initialTemplate = () => {
   body.innerHTML = template
 }
 
-let url = 'f'
+let url = 'users'
 
 const getUsers = async () => {
   const response = await fetch(url)
@@ -38,7 +38,6 @@ const getUsers = async () => {
         method: 'DELETE', 
       })
       userNode.parentNode.remove()
-      // alert('Eliminado con exito')
     }
   })
 
