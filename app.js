@@ -6,12 +6,12 @@ const app = express()
 app.use(express.json())
 mongoose.connect('mongodb+srv://victor:db123456@cluster0.h3p4lnt.mongodb.net/miapp?retryWrites=true&w=majority')
 
-app.get('/f', user.list)
-app.post('/f', user.create)
-app.get('/f/:id', user.get)
-app.put('/f/:id', user.update)
-app.patch('/f/:id', user.update)
-app.delete('/f/:id', user.destroy)
+app.get('/users', user.list)
+app.post('/users', user.create)
+app.get('/users/:id', user.get)
+app.put('/users/:id', user.update)
+app.patch('/users/:id', user.update)
+app.delete('/users/:id', user.destroy)
 
 app.use(express.static('js'))
 

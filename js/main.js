@@ -20,7 +20,7 @@ const initialTemplate = () => {
 }
 
 const getUsers = async () => {
-  const response = await fetch('/f')
+  const response = await fetch('/users')
   const users = await response.json()
   console.log(users)
   const template = user => `
@@ -31,7 +31,7 @@ const getUsers = async () => {
   users.forEach(user => {
     const userNode = document.querySelector(`[data-id="${user._id}"]`)
     userNode.onclick = async e => {
-      await fetch(`/f/${user._id}`, {
+      await fetch(`/users/${user._id}`, {
         method: 'DELETE', 
       })
       userNode.parentNode.remove()
@@ -47,7 +47,7 @@ const addFormListener = () => {
     e.preventDefault()
     const formData = new FormData(userForm)
     const data = Object.fromEntries(formData.entries())
-    await fetch('/f', {
+    await fetch('/users', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
