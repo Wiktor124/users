@@ -21,7 +21,7 @@ const initialTemplate = () => {
   body.innerHTML = template
 }
 
-let url = 'https://users-khaki.vercel.app/'
+let url = 'f'
 
 const getUsers = async () => {
   const response = await fetch(url)
@@ -34,7 +34,7 @@ const getUsers = async () => {
   users.forEach(user => {
     const userNode = document.querySelector(`[data-id="${user._id}"]`)
     userNode.onclick = async e => {
-      await fetch(`${url}${user._id}`, {
+      await fetch(`${url}/${user._id}`, {
         method: 'DELETE', 
       })
       userNode.parentNode.remove()
