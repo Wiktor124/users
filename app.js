@@ -13,7 +13,7 @@ app.put('/users/:id', user.update)
 app.patch('/users/:id', user.update)
 app.delete('/users/:id', user.destroy)
 
-app.use(express.static('https://users-khaki.vercel.app/js'))
+app.use(express.static('js'))
 
 app.get('/', (req, res) => {
   console.log(__dirname);
