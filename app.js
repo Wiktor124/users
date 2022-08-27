@@ -3,10 +3,12 @@ const path = require('path');
 const mongoose = require('mongoose');
 const user = require('./api/controllers/user.controller')
 const app = express()
+require('dotenv').config()
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 app.use(express.json())
 app.use(express.static('public'))
+
 mongoose.connect('mongodb+srv://victor:db123456@cluster0.h3p4lnt.mongodb.net/miapp?retryWrites=true&w=majority')
 
 app.get('/', (req, res) => {
@@ -20,11 +22,9 @@ app.put('/users/:id', user.update)
 app.patch('/users/:id', user.update)
 app.delete('/users/:id', user.destroy)
 
-
 app.get('*', (req, res) => {
   res.status(404).send('Esta pagina no existe')
 })
-
 
 app.listen(PORT, () => {
   console.log('Server on port', PORT)

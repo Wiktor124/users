@@ -21,7 +21,7 @@ const initialTemplate = () => {
   body.innerHTML = template
 }
 
-let url = 'users'
+const url = 'users'
 
 const getUsers = async () => {
   const response = await fetch(url)
