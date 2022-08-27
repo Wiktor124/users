@@ -7,10 +7,7 @@ const initialTemplate = () => {
       <label>Name</label>
       <input type="text" name="name" autocomplete="off">
     </div>
-    <div>
-      <label>Last Name </label>
-      <input type="text" name="lastname" autocomplete="off">
-    </div>
+
     <input type="submit" value="Send">
   </form>
   <ul id="user-list"></ul>
@@ -20,6 +17,11 @@ const initialTemplate = () => {
 
   body.innerHTML = template
 }
+
+// {/* <div>
+// <label>Last Name </label>
+// <input type="text" name="lastname" autocomplete="off">
+// </div> */}
 
 const url = 'users'
 
