@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const user = require('./api/controllers/user.controller')
 const app = express()
 
-const PORT = process.env || 3000;
+const PORT = process.env.PORT || 3000;
 app.use(express.json())
 app.use(express.static('public'))
 mongoose.connect('mongodb+srv://victor:db123456@cluster0.h3p4lnt.mongodb.net/miapp?retryWrites=true&w=majority')
