@@ -4,7 +4,7 @@ const initialTemplate = () => {
   const template = `
   <form action="" id="user-form">
     <div>
-      <label>Name</label>
+      <label>Message</label>
       <input type="text" name="name" autocomplete="off">
     </div>
 
