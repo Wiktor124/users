@@ -29,7 +29,7 @@ const getUsers = async () => {
   const response = await fetch(url)
   const users = await response.json()
   const template = user => `
-  <li>${user.name} ${user.lastname} <button data-id="${user._id}">Eliminar</button></li>
+  <li>${user.name} <button data-id="${user._id}">Eliminar</button></li>
   `
   const userList = document.getElementById('user-list')
   userList.innerHTML = users.map(user => template(user)).join('')
