@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const user = require('./api/controllers/user.controller')
 const app = express()
 
+const PORT = process.env || 3000;
 app.use(express.json())
 app.use(express.static('public'))
 mongoose.connect('mongodb+srv://victor:db123456@cluster0.h3p4lnt.mongodb.net/miapp?retryWrites=true&w=majority')
@@ -25,6 +26,6 @@ app.get('*', (req, res) => {
 })
 
 
-app.listen(3000, () => {
-  console.log('Server on port 3000')
+app.listen(PORT, () => {
+  console.log('Server on port', PORT)
 })
