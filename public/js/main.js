@@ -14,14 +14,8 @@ const initialTemplate = () => {
   `
 
   const body = document.getElementsByTagName('body')[0]
-
   body.innerHTML = template
 }
-
-// {/* <div>
-// <label>Last Name </label>
-// <input type="text" name="lastname" autocomplete="off">
-// </div> */}
 
 const url = 'users'
 
