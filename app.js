@@ -5,7 +5,7 @@ const user = require('./api/controllers/user.controller')
 const app = express()
 require('dotenv').config()
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 app.use(express.json())
 app.use(express.static('public'))
 
