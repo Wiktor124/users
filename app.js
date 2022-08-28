@@ -5,7 +5,7 @@ const user = require('./api/controllers/user.controller')
 const app = express()
 require('dotenv').config()
 
-const API_URI = process.env.API_URI;
+const PORT = process.env.PORT || 3000;
 app.use(express.json())
 app.use(express.static('public'))
 
@@ -26,6 +26,6 @@ app.get('*', (req, res) => {
   res.status(404).send('Esta pagina no existe')
 })
 
-app.listen(API_URI, () => {
-  console.log('Server on port', API_URI)
+app.listen(PORT, () => {
+  console.log('Server on port', PORT)
 })
