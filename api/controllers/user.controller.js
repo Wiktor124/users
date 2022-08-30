@@ -1,6 +1,6 @@
-const Users = require('../modules/User');
+import { Users } from '../modules/User.js'
 
-const User = {
+export const  User = {
   get: async (req, res) => {
     const { id } = req.params
     const user = await Users.findOne({ _id: id })
@@ -28,5 +28,3 @@ const User = {
     res.sendStatus(204)
   }
 }
-
-module.exports = User

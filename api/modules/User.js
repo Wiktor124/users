@@ -1,8 +1,6 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
-const Users = mongoose.model('User', {
+export const Users = mongoose.model('User', {
   name: { type: String, required: true, minLength: 1},
   // lastname: { type: String, required: true, minLength: 3},
 })
-
-module.exports = Users
