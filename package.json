@@ -2,11 +2,11 @@
   "name": "proyecto",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "app.mjs",
   "type": "module",
   "scripts": {
     "dev": "nodemon app.mjs",
-    "start": "node app.js"
+    "start": "node app.mjs"
   },
   "keywords": [],
   "author": "Víctor",
