@@ -11,11 +11,11 @@ const __dirname = path.dirname(__filename);
 const app = express()
 
 
-const PORT = process.env.API_URL;
+const PORT = process.env.PORT;
 app.use(express.json())
 app.use(express.static('public'))
 
-mongoose.connect('mongodb+srv://victor:db123456@cluster0.h3p4lnt.mongodb.net/miapp?retryWrites=true&w=majority')
+mongoose.connect(process.env.DB_URI)
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(`${__dirname}/index.html`));
