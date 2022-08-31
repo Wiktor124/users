@@ -3,11 +3,11 @@ import { Users } from '../modules/User.js'
 
 const appRouter = express.Router()
 
-// appRouter.get('/', async (req, res) => {
-//   const { id } = req.params
-//   const user = await Users.findOne({ _id: id })
-//   res.status(200).send(user)
-// })
+export const list = async (req, res) => {
+  const users = await Users.find()
+  res.status(200).send(users)
+}
+
 appRouter.post('/', async (req, res) => {
   try {
     const user = new Users(req.body)
@@ -17,11 +17,7 @@ appRouter.post('/', async (req, res) => {
     return null
   }
 })
-export const list = async (req, res) => {
 
-  const users = await Users.find()
-  res.status(200).send(users)
-}
 appRouter.put('/:id', async (req, res) => {
   const { id } = req.params
   const user = await Users.findOne({ _id: id })
@@ -29,6 +25,7 @@ appRouter.put('/:id', async (req, res) => {
   await user.save()
   res.sendStatus(204)
 })
+
 appRouter.patch('/:id', async (req, res) => {
   const { id } = req.params
   const user = await Users.findOne({ _id: id })
@@ -36,6 +33,7 @@ appRouter.patch('/:id', async (req, res) => {
   await user.save()
   res.sendStatus(204)
 })
+
 appRouter.delete('/:id', async (req, res) => {
   const { id } = req.params
   await Users.findByIdAndRemove({ _id: id })
