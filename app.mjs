@@ -1,13 +1,9 @@
 import 'dotenv/config'
-import express  from 'express';
-import path from 'path';
+import express from 'express';
 import mongoose from 'mongoose';
-import {User} from './api/controllers/user.controller.js';
-import {fileURLToPath} from 'url';
+import appRouter from './api/controllers/user.controller.js';
+import { list } from './api/controllers/user.controller.js';
 
-const __filename = fileURLToPath(import.meta.url);
-
-const __dirname = path.dirname(__filename);
 const app = express()
 
 
@@ -17,20 +13,7 @@ app.use(express.static('public'))
 
 mongoose.connect(process.env.DB_URI)
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(`${__dirname}/index.html`));
-})
-
-app.get('/users', User.list)
-app.post('/users', User.create)
-app.get('/users/:id', User.get)
-app.put('/users/:id', User.update)
-app.patch('/users/:id', User.update)
-app.delete('/users/:id', User.destroy)
-
-app.get('*', (req, res) => {
-  res.status(404).send('Esta pagina no existe')
-})
+app.use('/users', appRouter, list)
 
 app.listen(PORT, () => {
   console.clear()

@@ -31,7 +31,7 @@ const getUsers = async () => {
     const userNode = document.querySelector(`[data-id="${user._id}"]`)
     userNode.onclick = async e => {
       await fetch(`${url}/${user._id}`, {
-        method: 'DELETE', 
+        method: 'DELETE',
       })
       userNode.parentNode.remove()
     }
@@ -52,6 +52,7 @@ const addFormListener = () => {
         'Content-Type': 'application/json'
       }
     })
+
     userForm.reset()
     getUsers()
   }
