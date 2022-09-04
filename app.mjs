@@ -10,7 +10,7 @@ const PORT = process.env.PORT;
 app.use(express.json())
 app.use(express.static('public'))
 
-mongoose.connect(`mongodb+srv://victor:${process.env.DB_URI}@cluster0.h3p4lnt.mongodb.net/?retryWrites=true&w=majority`)
+mongoose.connect(process.env.DB_URI)
 
 app.use('/users', appRouter, list)
 
